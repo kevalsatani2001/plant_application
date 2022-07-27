@@ -21,4 +21,6 @@ class Assets {
   /////////////////////////SPECIES Screeen////////////////////////
   static String onBoardImg17 = "asset2/Grou 12.png";
   static String onBoardImg18 = "asset2/c3.png";
+  //////////////////////article////////////////////////
+  static String onBoardImg19 = 'asset2/Group 12.png';
 }

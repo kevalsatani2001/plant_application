@@ -1,4 +1,4 @@
-class Articles{
+class Articles {
   final int? id;
   final String? image;
   final String? name;
@@ -6,5 +6,6 @@ class Articles{
   final String? cirimage;
   final String? date;
 
-  Articles({this.id, this.image, this.name, this.text, this.cirimage, this.date});
+  Articles(
+      {this.id, this.image, this.name, this.text, this.cirimage, this.date});
 }

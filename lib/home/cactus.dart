@@ -18,10 +18,10 @@ class PlantScreen extends StatefulWidget {
 
 class _PlantScreenState extends State<PlantScreen> {
   List<Subcatagory> items = [];
-  // List  di=[];
+  
   @override
   void initState() {
-    // di=Utils.subcategorydetailList();
+    
     items = Utils.subcategoryList();
     items = items
         .where((element) => element.speciesID == widget.selectedCatagory.id)

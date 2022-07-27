@@ -5,8 +5,6 @@ import '../utils/heiper.dart';
 import 'cactus.dart';
 import 'home_main_screen.dart';
 
-
-
 class SpeciesScreen extends StatefulWidget {
   const SpeciesScreen({Key? key}) : super(key: key);
 
@@ -16,25 +14,21 @@ class SpeciesScreen extends StatefulWidget {
 
 class _SpeciesScreenState extends State<SpeciesScreen> {
   List spciesclass = [];
-  
+
   @override
-  void initState(){
-    spciesclass=Utils.getMockedMainCategories();
+  void initState() {
+    spciesclass = Utils.getMockedMainCategories();
     super.initState();
-  }  
-    
-    
-  
-  
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
-        
           Stack(children: [
             Expanded(
-              
               child: SizedBox(
                 child: Image(image: AssetImage(Assets.onBoardImg17)),
               ),
@@ -81,34 +75,35 @@ class _SpeciesScreenState extends State<SpeciesScreen> {
               ),
             ),
           ]),
-          
-          ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemCount: spciesclass.length,
-              itemBuilder: (BuildContext context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => PlantScreen(selectedCatagory: spciesclass[index]))));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 8),
-                    // ignore: sized_box_for_whitespace
-                    child: Container(
-                        width: double.infinity,
-                        child: Text(
-                          spciesclass[index].name!,
-                          style:const TextStyle(
-                            fontSize: 17,
-                            color: Color(0XFF6A6F7D),
-                          ),
-                        )),
-                  ),
-                );
-              })
+          Expanded(
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: spciesclass.length,
+                itemBuilder: (BuildContext context, index) {
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => PlantScreen(
+                                  selectedCatagory: spciesclass[index]))));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 8),
+                      child: SizedBox(
+                          width: double.infinity,
+                          child: Text(
+                            spciesclass[index].name!,
+                            style: const TextStyle(
+                              fontSize: 17,
+                              color: Color(0XFF6A6F7D),
+                            ),
+                          )),
+                    ),
+                  );
+                }),
+          )
         ],
       ),
     );
